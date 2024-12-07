@@ -1,5 +1,3 @@
-console.log("app.js is running");
-console.log("testing...");
 import { fetchAllData } from './api/dataFetcher.js';
 import { initializeFuse, search } from './utils/search.js';
 import { fadeIn, bounceAnimation } from './utils/animations.js';
@@ -10,8 +8,6 @@ const voiceSearchBtn = document.getElementById('voice-search-btn');
 const voiceAnimation = document.getElementById('voice-animation');
 const loadMoreBtn = document.getElementById('load-more-btn');
 const themeToggle = document.getElementById('theme-toggle');
-
-// console.log("fetchAllData: ",fetchAllData())
 
 let allData = [];
 let currentPage = 1;
@@ -130,7 +126,6 @@ const init = async () => {
     initializeTheme();
     allData = await fetchAllData();
     initializeFuse(allData);
-    console.log("data: ", allData)
     displayResults(allData.slice(0, itemsPerPage));
   } catch (error) {
     console.error('Error initializing app:', error);
