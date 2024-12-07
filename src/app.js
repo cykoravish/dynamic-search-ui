@@ -1,4 +1,5 @@
 console.log("app.js is running");
+console.log("testing...");
 import { fetchAllData } from './api/dataFetcher.js';
 import { initializeFuse, search } from './utils/search.js';
 import { fadeIn, bounceAnimation } from './utils/animations.js';
