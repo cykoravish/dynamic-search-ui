@@ -4,9 +4,11 @@ const fetchNews = async () => {
   console.log("news api key: ", NEWS_API_KEY);
   console.log("news api key: ", MOVIE_API_KEY);
   console.log("fetching news");
-  const response = await fetch(
-    `https://newsapi.org/v2/top-headlines?country=us&apiKey=1c34ea2dfe2c468992eac7ccbca1450d`
-  );
+  const corsProxyUrl = "https://cors-anywhere.herokuapp.com/";
+  const apiUrl = `https://newsapi.org/v2/top-headlines?country=us&apiKey=${NEWS_API_KEY}`;
+
+  const response = await fetch(`${corsProxyUrl}${apiUrl}`);
+
   const data = await response.json();
   return data.articles.map((article) => ({
     id: article.url,
@@ -35,9 +37,12 @@ const fetchBooks = async () => {
 };
 
 const fetchMovies = async () => {
-  const response = await fetch(
-    `https://api.themoviedb.org/3/movie/popular?api_key=0d01f63e1aae052211ea93f252a8b015`
-  );
+
+  const corsProxyUrl = "https://cors-anywhere.herokuapp.com/";
+  const apiUrl = `https://api.themoviedb.org/3/movie/popular?api_key=${MOVIE_API_KEY}`;
+
+  const response = await fetch(`${corsProxyUrl}${apiUrl}`);
+
   const data = await response.json();
   return data.results.map((movie) => ({
     id: movie.id,
