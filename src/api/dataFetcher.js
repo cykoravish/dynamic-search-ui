@@ -1,9 +1,9 @@
+import { NEWS_API_KEY, MOVIE_API_KEY } from "../config.js";
 
-import { NEWS_API_KEY } from './config.js';
-
-console.log("news api key: ",NEWS_API_KEY)
 const fetchNews = async () => {
-  console.log("fetching news")
+  console.log("news api key: ", NEWS_API_KEY);
+  console.log("news api key: ", MOVIE_API_KEY);
+  console.log("fetching news");
   const response = await fetch(
     `https://newsapi.org/v2/top-headlines?country=us&apiKey=1c34ea2dfe2c468992eac7ccbca1450d`
   );
