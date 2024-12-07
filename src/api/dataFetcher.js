@@ -4,10 +4,11 @@ const fetchNews = async () => {
   console.log("news api key: ", NEWS_API_KEY);
   console.log("news api key: ", MOVIE_API_KEY);
   console.log("fetching news");
-  const corsProxyUrl = "https://cors-anywhere.herokuapp.com/";
-  const apiUrl = `https://newsapi.org/v2/top-headlines?country=us&apiKey=${NEWS_API_KEY}`;
 
-  const response = await fetch(`${corsProxyUrl}${apiUrl}`);
+  const corsProxyUrl = 'https://api.allorigins.win/raw?url=';
+
+const apiUrl = encodeURIComponent(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${NEWS_API_KEY}`);
+const response = await fetch(`${corsProxyUrl}${apiUrl}`);
 
   const data = await response.json();
   return data.articles.map((article) => ({
@@ -38,10 +39,14 @@ const fetchBooks = async () => {
 
 const fetchMovies = async () => {
 
-  const corsProxyUrl = "https://cors-anywhere.herokuapp.com/";
-  const apiUrl = `https://api.themoviedb.org/3/movie/popular?api_key=${MOVIE_API_KEY}`;
+  const corsProxyUrl = 'https://api.allorigins.win/raw?url=';
 
-  const response = await fetch(`${corsProxyUrl}${apiUrl}`);
+const apiUrl = encodeURIComponent(`https://api.themoviedb.org/3/movie/popular?api_key=${MOVIE_API_KEY}`);
+const response = await fetch(`${corsProxyUrl}${apiUrl}`);
+
+
+
+  // const response = await fetch(`${corsProxyUrl}${apiUrl}`);
 
   const data = await response.json();
   return data.results.map((movie) => ({
