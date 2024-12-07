@@ -11,6 +11,8 @@ const voiceAnimation = document.getElementById('voice-animation');
 const loadMoreBtn = document.getElementById('load-more-btn');
 const themeToggle = document.getElementById('theme-toggle');
 
+// console.log("fetchAllData: ",fetchAllData())
+
 let allData = [];
 let currentPage = 1;
 const itemsPerPage = 10;
