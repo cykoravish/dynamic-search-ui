@@ -15,8 +15,8 @@ jobs:
       - name: Create Config.js with Secrets
         run: |
           mkdir -p src
-          echo "const MOVIE_API_KEY = '${{ secrets.MOVIE_API_KEY }}';" > src/config.js
-          echo "const NEWS_API_KEY = '${{ secrets.NEWS_API_KEY }}';" >> src/config.js
+          echo "const MOVIE_API_KEY = '${{ secrets.MOVIE_API_KEY }}';" > src/api/config.js
+          echo "const NEWS_API_KEY = '${{ secrets.NEWS_API_KEY }}';" >> src/api/config.js
           echo "export { MOVIE_API_KEY, NEWS_API_KEY };" >> src/config.js
 
       - name: Deploy to GitHub Pages

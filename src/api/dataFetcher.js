@@ -1,4 +1,3 @@
-import { NEWS_API_KEY, MOVIE_API_KEY } from "./config.js";
 
 const fetchNews = async () => {
   const response = await fetch(
