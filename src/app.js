@@ -1,3 +1,4 @@
+console.log("app.js is running");
 import { fetchAllData } from './api/dataFetcher.js';
 import { initializeFuse, search } from './utils/search.js';
 import { fadeIn, bounceAnimation } from './utils/animations.js';
@@ -32,7 +33,7 @@ const displayResults = (results, append = false) => {
     resultElement.innerHTML = `
       <img src="${item.image}" alt="${item.title}" />
       <h2>${item.title}</h2>
-      <p>${item.content.substring(0, 150)}...</p>
+      <p>${item.content?.substring(0, 150)}...</p>
       <span class="category">${item.category}</span>
     `;
 
@@ -126,6 +127,7 @@ const init = async () => {
     initializeTheme();
     allData = await fetchAllData();
     initializeFuse(allData);
+    console.log("data: ", allData)
     displayResults(allData.slice(0, itemsPerPage));
   } catch (error) {
     console.error('Error initializing app:', error);
