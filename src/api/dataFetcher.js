@@ -1,5 +1,7 @@
 
-// console.log("news api key: ",NEWS_API_KEY)
+import { NEWS_API_KEY } from './config.js';
+
+console.log("news api key: ",NEWS_API_KEY)
 const fetchNews = async () => {
   console.log("fetching news")
   const response = await fetch(
